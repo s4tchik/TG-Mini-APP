@@ -9,7 +9,7 @@ import json
 logging.basicConfig(level=logging.INFO)
 
 # Конфигурация бота
-API_TOKEN = '7597499330:AAFV_qzG1EpcW6cxN-MY2ZJwcwVQWJFL9GQ'
+API_TOKEN = '1'
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 dp.middleware.setup(LoggingMiddleware())
