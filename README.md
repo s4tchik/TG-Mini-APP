@@ -1,6 +1,3 @@
-# Создание README.md для Telegram MiniApp Bot
-
-cat <<EOF > README.md
 # Telegram MiniApp Bot
 
 ## Описание проекта
