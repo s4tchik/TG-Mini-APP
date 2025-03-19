@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-bold text-center mb-4">MiniApp</h1>
+        <form id="expense-form">
+            <input type="number" id="amount" placeholder="Сумма" class="w-full p-2 border rounded mb-2" required>
+            <textarea id="description" placeholder="Описание" class="w-full p-2 border rounded mb-2" required></textarea>
+            <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
+                Добавить расход
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Инициализация Telegram Web App
+        const tg = window.Telegram.WebApp;
+
+        // Отправка данных из формы
+        document.getElementById('expense-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const amount = document.getElementById('amount').value;
+            const description = document.getElementById('description').value;
+
+            const data = { action: 'add_expense', amount, description };
+            tg.sendData(JSON.stringify(data));
+            tg.close();
+        });
+
+        // Установка заголовка и цвета кнопки закрытия
+        tg.setHeaderColor('#ffffff');
+        tg.setBackgroundColor('#f3f4f6');
+    </script>
+</body>
+</html>
